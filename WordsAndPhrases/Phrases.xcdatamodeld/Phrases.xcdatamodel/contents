@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PartOfSpeech" representedClassName="PartOfSpeech" syncable="YES">
+        <attribute name="partOfSpeech" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="partsOfSpeech" inverseEntity="Word" syncable="YES"/>
+    </entity>
+    <entity name="Phrase" representedClassName="Phrase" syncable="YES">
+        <attribute name="phrase" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Word" representedClassName="Word" syncable="YES">
+        <attribute name="syllableCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wordsAPICalled" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="wordsAPIHasWord" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="partsOfSpeech" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PartOfSpeech" inverseName="words" inverseEntity="PartOfSpeech" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PartOfSpeech" positionX="-25832" positionY="-10711" width="128" height="73"/>
+        <element name="Phrase" positionX="-25607" positionY="-10840" width="128" height="58"/>
+        <element name="Word" positionX="-26057" positionY="-10791" width="128" height="118"/>
+    </elements>
+</model>

@@ -1,0 +1,29 @@
+ ["syllables": {
+  count = 2;
+  list =     (
+              sun,
+              ny
+              );
+  }, "pronunciation": {
+  all = "'s\U0259ni";
+  }, "results": <__NSSingleObjectArrayI 0x608000202e20>(
+                                                        {
+                                                        definition = "bright and pleasant; promoting a feeling of cheer";
+                                                        derivation =     (
+                                                                          sunniness
+                                                                          );
+                                                        examples =     (
+                                                                        "a gay sunny room",
+                                                                        "a sunny smile"
+                                                                        );
+                                                        partOfSpeech = adjective;
+                                                        similarTo =     (
+                                                                         cheerful
+                                                                         );
+                                                        synonyms =     (
+                                                                        cheery,
+                                                                        gay
+                                                                        );
+                                                        }
+                                                        )
+  , "frequency": 4.22, "word": sunny]
