@@ -63,18 +63,10 @@ class WordsAndPhrasesUITests: XCTestCase {
         XCTAssertTrue(addAPhraseHeading.waitForExistence(timeout: 5), "Never saw 'Add a phrase' view")
         
         let textField = app.cells.children(matching: .textField).element
-        
-        // typeText is flakey and causes tests to fail
-        // ...so using "Paste" from the UIPasteboard as a workaround
-        //textField.tap()
-        //textField.typeText(thePhrase)
-        
-        UIPasteboard.general.string = thePhrase
-        textField.doubleTap()
-        pasteMenuItem.tap()
-        sleep(5)
-
+        textField.tap()
+        textField.typeText(thePhrase)
         doneButton.tap()
+        
         XCTAssertTrue(phrasesHeading.waitForExistence(timeout: 10), "Never saw 'Phrases' view")
 
         let numberOfCellsAfterAdd = app.cells.count
@@ -95,12 +87,10 @@ class WordsAndPhrasesUITests: XCTestCase {
         addButton.tap()
         
         let textField = app.cells.children(matching: .textField).element
-        UIPasteboard.general.string = thePhrase
-        textField.doubleTap()
-        pasteMenuItem.tap()
-        sleep(1)
-
+        textField.tap()
+        textField.typeText(thePhrase)
         doneButton.tap()
+        
         XCTAssertTrue(phrasesHeading.waitForExistence(timeout: 10), "Never saw 'Phrases' view")
 
         let numberOfCellsAfterAdd = app.cells.count
@@ -117,10 +107,8 @@ class WordsAndPhrasesUITests: XCTestCase {
         XCTAssertTrue(addAPhraseHeading.waitForExistence(timeout: 10), "Never saw 'Add a phrase' view")
 
         let textField = app.cells.children(matching: .textField).element
-        UIPasteboard.general.string = thePhrase
-        textField.doubleTap()
-        pasteMenuItem.tap()
-        sleep(1)
+        textField.tap()
+        textField.typeText(thePhrase)
         doneButton.tap()
 
         XCTAssertTrue(phrasesHeading.waitForExistence(timeout: 10), "Never saw 'Phrases' view")
@@ -140,18 +128,10 @@ class WordsAndPhrasesUITests: XCTestCase {
         XCTAssertTrue(addAPhraseHeading.waitForExistence(timeout: 10), "Never saw 'Add a phrase' view")
         
         let textField = app.cells.children(matching: .textField).element
-        
-        // typeText is flakey and causes tests to fail
-        // ...so using "Paste" from the UIPasteboard as a workaround
-        //textField.tap()
-        //textField.typeText(thePhrase)
-        
-        UIPasteboard.general.string = thePhrase
-        textField.doubleTap()
-        pasteMenuItem.tap()
-        sleep(1)
-        
+        textField.tap()
+        textField.typeText(thePhrase)
         cancelButton.tap()
+        
         XCTAssertTrue(phrasesHeading.waitForExistence(timeout: 10), "Never saw 'Phrases' view")
 
         let numberOfCellsAfterCancel = app.cells.count
@@ -164,12 +144,10 @@ class WordsAndPhrasesUITests: XCTestCase {
         
         XCTAssertTrue(phrasesHeading.waitForExistence(timeout: 10), "Never saw 'Phrases' view")
         addButton.tap()
+        
         let textField = app.cells.children(matching: .textField).element
-      
-        UIPasteboard.general.string = phrase1
-        textField.doubleTap()
-        pasteMenuItem.tap()
-        sleep(1)
+        textField.tap()
+        textField.typeText(phrase1)
         doneButton.tap()
 
         XCTAssertTrue(phrasesHeading.waitForExistence(timeout: 10), "Never saw 'Phrases' view")
