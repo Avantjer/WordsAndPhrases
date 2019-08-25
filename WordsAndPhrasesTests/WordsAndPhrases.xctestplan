@@ -1,0 +1,55 @@
+{
+  "configurations" : [
+    {
+      "enabled" : false,
+      "id" : "11634DAD-5162-498B-8DF5-B6A7E20BD8ED",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    },
+    {
+      "id" : "052ED6A8-EED4-4176-B06E-C881FEF50882",
+      "name" : "RandomRun",
+      "options" : {
+        "testExecutionOrdering" : "random"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:WordsAndPhrases.xcodeproj",
+      "identifier" : "8B2FD87E1EC8F0E6000FEB1B",
+      "name" : "WordsAndPhrases"
+    }
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "CoreDataTests\/testWordCountFromAddingPhrase()",
+        "CoreDataTests\/testWordCountFromAddingWord()",
+        "CoreDataTests\/test_WordCountFromAddingPhrase()",
+        "FakeTests\/testAPICallGetsExpectedJson()"
+      ],
+      "target" : {
+        "containerPath" : "container:WordsAndPhrases.xcodeproj",
+        "identifier" : "8B2FD8921EC8F0E7000FEB1B",
+        "name" : "WordsAndPhrasesTests"
+      }
+    },
+    {
+      "skippedTests" : [
+        "InterviewDemoUITests",
+        "InterviewDemoUITests\/testNestedFailure()",
+        "WordsAndPhrasesUITests\/testAddAnEmptyPhraseDoesntAdd()",
+        "WordsAndPhrasesUITests\/testNestedFailure()"
+      ],
+      "target" : {
+        "containerPath" : "container:WordsAndPhrases.xcodeproj",
+        "identifier" : "8B2FD89D1EC8F0E7000FEB1B",
+        "name" : "WordsAndPhrasesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
