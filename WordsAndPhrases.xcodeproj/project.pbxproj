@@ -77,7 +77,7 @@
 		8B60DC271EC9996A00E04C47 /* difference.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = difference.json; sourceTree = "<group>"; };
 		8B60DC291EC99BED00E04C47 /* FakeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeTests.swift; sourceTree = "<group>"; };
 		8B60DC2B1ECA1F2600E04C47 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		8BA3A9AE1ED3D622004EBBD6 /* sunny.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = sunny.json; path = ../sunny.json; sourceTree = "<group>"; };
+		8B734DD12310520D000156A3 /* WordsAndPhrases.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = WordsAndPhrases.xctestplan; sourceTree = "<group>"; };
 		8BA3A9B11ED56C09004EBBD6 /* JSONStudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONStudy.swift; sourceTree = "<group>"; };
 		8BB0118A22ADAEF40071172C /* WordsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsAPI.swift; sourceTree = "<group>"; };
 		8BD953211ECB7827001AC652 /* PhraseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhraseManager.swift; sourceTree = "<group>"; };
@@ -160,13 +160,13 @@
 		8B2FD8961EC8F0E7000FEB1B /* WordsAndPhrasesTests */ = {
 			isa = PBXGroup;
 			children = (
+				8B734DD12310520D000156A3 /* WordsAndPhrases.xctestplan */,
 				8B11C10420645D5C00FE4DCC /* humorous.json */,
 				8BA3A9B11ED56C09004EBBD6 /* JSONStudy.swift */,
 				8B60DC291EC99BED00E04C47 /* FakeTests.swift */,
 				8B2FD8971EC8F0E7000FEB1B /* APITests.swift */,
 				8B2FD8991EC8F0E7000FEB1B /* Info.plist */,
 				8B60DC271EC9996A00E04C47 /* difference.json */,
-				8BA3A9AE1ED3D622004EBBD6 /* sunny.json */,
 				8BFF1CB91ECB502E00C28952 /* CoreDataTests.swift */,
 			);
 			path = WordsAndPhrasesTests;
@@ -468,6 +468,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -520,6 +521,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
