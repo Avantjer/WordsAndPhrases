@@ -60,8 +60,8 @@ class PhraseManager {
             let theWord = theResult.first
             theWord?.wordsAPICalled = true
             theWord?.wordsAPIHasWord = wordsAPIHasWord
+            saveContext()
         }
-        saveContext()
     }
     
     func add(syllableCount: Int, for word: String) {
@@ -73,8 +73,8 @@ class PhraseManager {
         if theResult.count > 0 {
             let theWord = theResult.first
             theWord?.syllableCount = Int16(syllableCount)
+            saveContext()
         }
-        saveContext()
     }
     
     func add(partsOfSpeech: [String], for word: String) {
@@ -87,6 +87,8 @@ class PhraseManager {
         let theResult = try! managedContext.fetch(wordFetch)
         if theResult.count > 0 {
             theWord = theResult.first!
+        } else {
+            return
         }
         
         for partOfSpeech in partsOfSpeech {
@@ -167,13 +169,6 @@ class PhraseManager {
         return thePhraseCount! > 0
     }
     
-    // The 1st predicate below does a case-sensitive fetch.
-    // The 2nd predicate below does a case-insensitive fetch.
-    //        phraseCountFetch.predicate = NSPredicate(format: "%K like[c] %@", #keyPath(Phrase.phrase), phrase)
-    //        phraseCountFetch.predicate = NSPredicate(format: "%K like %@", #keyPath(Phrase.phrase), phrase)
-    
-    //        var count: Int? = nil
-
     func phraseCount(phrase: String) -> Int? {
 
         let phraseCountFetch = NSFetchRequest<NSNumber>(entityName: "Phrase")
@@ -195,10 +190,6 @@ class PhraseManager {
         let theWordCount = wordCount(word: word)
         return theWordCount! > 0
     }
-    
-    // The 1st predicate below does a case-sensitive fetch.
-    // The 2nd predicate below does a case-insensitive fetch.
-    // phraseCountFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Phrase.phrase), phrase)
     
     func wordCount(word: String) -> Int? {
         
