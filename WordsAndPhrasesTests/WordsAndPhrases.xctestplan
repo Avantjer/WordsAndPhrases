@@ -1,7 +1,6 @@
 {
   "configurations" : [
     {
-      "enabled" : false,
       "id" : "11634DAD-5162-498B-8DF5-B6A7E20BD8ED",
       "name" : "Configuration 1",
       "options" : {
@@ -26,10 +25,7 @@
   "testTargets" : [
     {
       "skippedTests" : [
-        "CoreDataTests\/testWordCountFromAddingPhrase()",
-        "CoreDataTests\/testWordCountFromAddingWord()",
-        "CoreDataTests\/test_WordCountFromAddingPhrase()",
-        "FakeTests\/testAPICallGetsExpectedJson()"
+        "CoreDataTests\/testWordCountFromAddingPhrase()"
       ],
       "target" : {
         "containerPath" : "container:WordsAndPhrases.xcodeproj",
@@ -39,9 +35,6 @@
     },
     {
       "skippedTests" : [
-        "InterviewDemoUITests",
-        "InterviewDemoUITests\/testNestedFailure()",
-        "WordsAndPhrasesUITests\/testAddAnEmptyPhraseDoesntAdd()",
         "WordsAndPhrasesUITests\/testNestedFailure()"
       ],
       "target" : {
