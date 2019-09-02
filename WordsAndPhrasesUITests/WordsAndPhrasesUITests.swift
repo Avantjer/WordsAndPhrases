@@ -10,11 +10,6 @@ import XCTest
 
 let app = XCUIApplication()
 
-struct TextEditMenu {
-    static let pasteMenuItem = app.menuItems["Paste"]
-    static let selectAllMenuItem = app.menuItems["Select All"]
-}
-
 class WordsAndPhrasesUITests: XCTestCase {
     
     // MARK: - Properties

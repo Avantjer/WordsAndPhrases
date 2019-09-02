@@ -9,9 +9,7 @@
 import Foundation
 
 struct PhrasesScreen {
-    static let navBar = app.navigationBars["aiNavigationBar"]
-    static let navBarLabel = navBar.otherElements["Phrases"]
-
+    static let navBarLabel = app.navigationBars["aiNavigationBar"].otherElements["Phrases"]
     static let addButton = app.buttons["aiAdd"]
     static let getInfoButton = app.buttons["aiGetInfo"]
     static let deleteButton = app.buttons["Delete"]

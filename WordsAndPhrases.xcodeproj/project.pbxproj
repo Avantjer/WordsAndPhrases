@@ -36,6 +36,7 @@
 		8BDC005C1ED9527C00F4C5CD /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC00561ED9527C00F4C5CD /* Word+CoreDataProperties.swift */; };
 		8BF24E24231DD62300DC7A60 /* PhrasesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF24E23231DD62300DC7A60 /* PhrasesScreen.swift */; };
 		8BF24E26231DD64100DC7A60 /* AddAPhraseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF24E25231DD64100DC7A60 /* AddAPhraseScreen.swift */; };
+		8BF24E28231DDC5000DC7A60 /* AppleUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF24E27231DDC5000DC7A60 /* AppleUI.swift */; };
 		8BFF1CBA1ECB502E00C28952 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF1CB91ECB502E00C28952 /* CoreDataTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		8BDC00561ED9527C00F4C5CD /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8BF24E23231DD62300DC7A60 /* PhrasesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesScreen.swift; sourceTree = "<group>"; };
 		8BF24E25231DD64100DC7A60 /* AddAPhraseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPhraseScreen.swift; sourceTree = "<group>"; };
+		8BF24E27231DDC5000DC7A60 /* AppleUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUI.swift; sourceTree = "<group>"; };
 		8BFF1CB91ECB502E00C28952 /* CoreDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 				8BF24E22231DD5E300DC7A60 /* Screens */,
 				8B2FD8A21EC8F0E7000FEB1B /* WordsAndPhrasesUITests.swift */,
 				8B2FD8A41EC8F0E7000FEB1B /* Info.plist */,
+				8BF24E27231DDC5000DC7A60 /* AppleUI.swift */,
 			);
 			path = WordsAndPhrasesUITests;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			files = (
 				8BF24E24231DD62300DC7A60 /* PhrasesScreen.swift in Sources */,
 				8B2FD8A31EC8F0E7000FEB1B /* WordsAndPhrasesUITests.swift in Sources */,
+				8BF24E28231DDC5000DC7A60 /* AppleUI.swift in Sources */,
 				8BF24E26231DD64100DC7A60 /* AddAPhraseScreen.swift in Sources */,
 				8BA2A6B3207FD40F001393F6 /* Functions.swift in Sources */,
 			);
