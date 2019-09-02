@@ -44,24 +44,22 @@ class PhraseManager {
         
         // Not sure why we should create an instance.
         let theWordsAPI = WordsAPI(phraseManager: self)
-
+        
         theWordsAPI.getInfo(for: word)
-
+        
         saveContext()
     }
-
+    
     func setWordsAPICalled(for word: String, wordsAPIHasWord: Bool) {
         
         let wordFetch = NSFetchRequest<Word>(entityName: "Word")
         wordFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Word.word), word)
         
-        let theResult = try! managedContext.fetch(wordFetch)
-        if theResult.count > 0 {
-            let theWord = theResult.first
-            theWord?.wordsAPICalled = true
-            theWord?.wordsAPIHasWord = wordsAPIHasWord
-            saveContext()
-        }
+        guard let theWord = try? managedContext.fetch(wordFetch).first  else { return }
+        
+        theWord.wordsAPICalled = true
+        theWord.wordsAPIHasWord = wordsAPIHasWord
+        saveContext()
     }
     
     func add(syllableCount: Int, for word: String) {
@@ -69,44 +67,33 @@ class PhraseManager {
         let wordFetch = NSFetchRequest<Word>(entityName: "Word")
         wordFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Word.word), word)
         
-        let theResult = try! managedContext.fetch(wordFetch)
-        if theResult.count > 0 {
-            let theWord = theResult.first
-            theWord?.syllableCount = Int16(syllableCount)
-            saveContext()
-        }
+        guard let theWord = try? managedContext.fetch(wordFetch).first  else { return }
+        
+        theWord.syllableCount = Int16(syllableCount)
+        saveContext()
     }
     
     func add(partsOfSpeech: [String], for word: String) {
-
-        var theWord: Word?
         
         let wordFetch = NSFetchRequest<Word>(entityName: "Word")
         wordFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Word.word), word)
         
-        let theResult = try! managedContext.fetch(wordFetch)
-        if theResult.count > 0 {
-            theWord = theResult.first!
-        } else {
-            return
-        }
+        guard let theWord = try? managedContext.fetch(wordFetch).first  else { return }
         
         for partOfSpeech in partsOfSpeech {
             let partOfSpeechFetch = NSFetchRequest<PartOfSpeech>(entityName: "PartOfSpeech")
             partOfSpeechFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(PartOfSpeech.partOfSpeech), partOfSpeech)
             
-            var thePartOfSpeech: PartOfSpeech
-            let theResult = try! managedContext.fetch(partOfSpeechFetch)
-            if theResult.count > 0 {
-                thePartOfSpeech = theResult.first!
+            if let thePartOfSpeech = try? managedContext.fetch(partOfSpeechFetch).first {
+                thePartOfSpeech.addToWords(theWord)
+                theWord.addToPartsOfSpeech(thePartOfSpeech)
             } else {
-                thePartOfSpeech = PartOfSpeech(context: managedContext)
+                let thePartOfSpeech = PartOfSpeech(context: managedContext)
                 thePartOfSpeech.partOfSpeech = partOfSpeech
+                thePartOfSpeech.addToWords(theWord)
+                theWord.addToPartsOfSpeech(thePartOfSpeech)
             }
-            thePartOfSpeech.addToWords(theWord!)
-            theWord?.addToPartsOfSpeech(thePartOfSpeech)
         }
-        
         saveContext()
     }
     
@@ -170,11 +157,11 @@ class PhraseManager {
     }
     
     func phraseCount(phrase: String) -> Int? {
-
+        
         let phraseCountFetch = NSFetchRequest<NSNumber>(entityName: "Phrase")
         phraseCountFetch.resultType = .countResultType
         phraseCountFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Phrase.phrase), phrase)
-
+        
         do {
             let countResult = try managedContext.fetch(phraseCountFetch)
             let count = countResult.first!.intValue
