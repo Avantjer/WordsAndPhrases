@@ -26,7 +26,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZTJ-zk-3H7">
                                             <rect key="frame" x="16" y="12" width="53.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="ai_Phrase"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="aiPhrase"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Syllables" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3SS-dZ-21V">
                                             <rect key="frame" x="291" y="12" width="68" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="ai_Syllables"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="aiSyllables"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.92141843980000004" green="0.8532984817" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="0.8231247223" blue="0.62254540410000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="ai_phraseCell">
+                                <accessibility key="accessibilityConfiguration" identifier="aiPhraseCell">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                                 <connections>
@@ -59,7 +59,7 @@
                     <navigationItem key="navigationItem" title="Phrases" id="wod-jp-RIi">
                         <barButtonItem key="leftBarButtonItem" title="Get Info" id="nHX-0s-gKQ">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ai_GetInfo"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiGetInfo"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="getInfo:" destination="KfI-dx-04s" id="5y9-Lv-b44"/>
@@ -67,14 +67,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="s6w-DC-PvK">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ai_Add"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiAdd"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <segue destination="zCe-Ug-LJI" kind="show" identifier="AddSegue" id="uxd-BR-iYO"/>
                             </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ai_Phrases"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiPhrases"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
                 </tableViewController>
@@ -103,7 +103,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zs9-An-4i6" userLabel="Phrase">
                                                     <rect key="frame" x="8" y="6" width="359" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <accessibility key="accessibilityConfiguration" identifier="ai_Phrase"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="aiPhrase"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -122,7 +122,7 @@
                     <navigationItem key="navigationItem" title="Add a phrase" id="auk-Pg-qsO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b6k-Ox-UbS">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ai_Cancel"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiCancel"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="cancel:" destination="zCe-Ug-LJI" id="l2t-rm-SQw"/>
@@ -130,14 +130,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="ytJ-c3-3GQ">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ai_Done"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiDone"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="done:" destination="zCe-Ug-LJI" id="AM3-HI-07G"/>
                             </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ai_AddAPhrase"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiAddAPhrase"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <connections>
@@ -157,7 +157,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ai_NavigationBar"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiNavigationBar"/>
                         </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

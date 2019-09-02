@@ -10,24 +10,6 @@ import XCTest
 
 let app = XCUIApplication()
 
-struct PhrasesScreen {
-    static let navBar = app.navigationBars["ai_NavigationBar"]
-    static let navBarLabel = navBar.otherElements["Phrases"]
-
-    static let addButton = app.buttons["ai_Add"]
-    static let getInfoButton = app.buttons["ai_GetInfo"]
-    static let deleteButton = app.buttons["Delete"]
-}
-
-struct AddAPhraseScreen {
-    static let navBar = app.navigationBars["ai_NavigationBar"]
-    static let navBarLabel = navBar.otherElements["Add a phrase"]
-
-    static let cancelButton = app.buttons["ai_Cancel"]
-    static let doneButton = app.buttons["ai_Done"]
-    static let phraseEntryTextField = app.textFields["ai_Phrase"]
-}
-
 struct TextEditMenu {
     static let pasteMenuItem = app.menuItems["Paste"]
     static let selectAllMenuItem = app.menuItems["Select All"]
