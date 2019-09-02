@@ -181,10 +181,10 @@
 		8B2FD8A11EC8F0E7000FEB1B /* WordsAndPhrasesUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8BF24E22231DD5E300DC7A60 /* Screens */,
-				8B2FD8A21EC8F0E7000FEB1B /* WordsAndPhrasesUITests.swift */,
-				8B2FD8A41EC8F0E7000FEB1B /* Info.plist */,
 				8BF24E27231DDC5000DC7A60 /* AppleUI.swift */,
+				8BF24E22231DD5E300DC7A60 /* Screens */,
+				8BF24E29231DDFE000DC7A60 /* Tests */,
+				8B2FD8A41EC8F0E7000FEB1B /* Info.plist */,
 			);
 			path = WordsAndPhrasesUITests;
 			sourceTree = "<group>";
@@ -196,6 +196,14 @@
 				8BF24E25231DD64100DC7A60 /* AddAPhraseScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		8BF24E29231DDFE000DC7A60 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8B2FD8A21EC8F0E7000FEB1B /* WordsAndPhrasesUITests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		8BFF1CBD1ECB589600C28952 /* Model */ = {

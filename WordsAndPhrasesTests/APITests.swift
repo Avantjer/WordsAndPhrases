@@ -56,7 +56,7 @@ class APITests: XCTestCase {
         
         // Create request with URL and include the API Key in the header
         var theURLRequest = URLRequest(url: theURL)
-        theURLRequest.setValue("Ask Jerry For Authentication Key", forHTTPHeaderField: "X-Mashape-Key")
+        theURLRequest.setValue("pUlKYn2DA0mshnXuRdIZQ52aq7Cop17FDX6jsnfnMAJBgxY83S", forHTTPHeaderField: "X-Mashape-Key")
         theURLRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         
         let theExpectation = expectation(description: "Completion handler invoked")
