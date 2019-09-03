@@ -13,4 +13,18 @@ struct AddAPhraseScreen {
     static let cancelButton = app.buttons["aiCancel"]
     static let doneButton = app.buttons["aiDone"]
     static let phraseEntryTextField = app.textFields["aiPhrase"]
+    
+    static func typePhrase(_ text: String) {
+        phraseEntryTextField.tap()
+        phraseEntryTextField.typeText(text)
+    }
+    
+    static func tapDoneButton() {
+        doneButton.tap()
+    }
+
+    static func tapCancelButton() {
+        cancelButton.tap()
+    }
+
 }

@@ -34,42 +34,41 @@ class WordsAndPhrasesUITests: XCTestCase {
         
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
         
-        let numberOfCellsBeforeAdd = app.cells.count
-        
-        PhrasesScreen.addButton.tap()
+        let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
+        print("numberOfPhrasesBeforeAdd: \(numberOfPhrasesBeforeAdd)")
+
+        PhrasesScreen.tapAddButton()
         XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 5), "Never saw 'Add a phrase' nav bar label")
         
-        AddAPhraseScreen.phraseEntryTextField.tap()
-        AddAPhraseScreen.phraseEntryTextField.typeText(thePhrase)
-        
-        AddAPhraseScreen.doneButton.tap()
+        AddAPhraseScreen.typePhrase(thePhrase)
+        AddAPhraseScreen.tapDoneButton()
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
 
-        let numberOfCellsAfterAdd = app.cells.count
-        XCTAssertEqual(numberOfCellsAfterAdd, numberOfCellsBeforeAdd + 1, "Expected \(numberOfCellsBeforeAdd + 1) cells, but got \(numberOfCellsAfterAdd)")
+        let numberOfPhrasesAfterAdd = PhrasesScreen.phraseCount
+        print("numberOfPhrasesAfterAdd: \(numberOfPhrasesAfterAdd)")
         
-        app.staticTexts[thePhrase].swipeLeft()
-        PhrasesScreen.deleteButton.tap()
+        XCTAssertEqual(numberOfPhrasesAfterAdd, numberOfPhrasesBeforeAdd + 1, "Expected \(numberOfPhrasesBeforeAdd + 1) cells, but got \(numberOfPhrasesAfterAdd)")
         
-        let numberOfCellsAfterDelete = app.cells.count
-        XCTAssertEqual(numberOfCellsAfterDelete, numberOfCellsBeforeAdd, "Expected \(numberOfCellsBeforeAdd) cells, but got \(numberOfCellsAfterDelete)")
+        PhrasesScreen.deletePhrase(thePhrase)
+
+        let numberOfPhrasesAfterDelete = PhrasesScreen.phraseCount
+        XCTAssertEqual(numberOfPhrasesAfterDelete, numberOfPhrasesBeforeAdd, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterDelete)")
     }
     
     func testAddAnEmptyPhraseDoesntAdd() {
         
         let thePhrase = ""
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-        let numberOfCellsBeforeAdd = app.cells.count
-        PhrasesScreen.addButton.tap()
+        let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
+        PhrasesScreen.tapAddButton()
         
-        AddAPhraseScreen.phraseEntryTextField.tap()
-        AddAPhraseScreen.phraseEntryTextField.typeText(thePhrase)
-        AddAPhraseScreen.doneButton.tap()
+        AddAPhraseScreen.typePhrase(thePhrase)
+        AddAPhraseScreen.tapDoneButton()
         
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
 
-        let numberOfCellsAfterAdd = app.cells.count
-        XCTAssertEqual(numberOfCellsAfterAdd, numberOfCellsBeforeAdd, "Expected \(numberOfCellsBeforeAdd) cells, but got \(numberOfCellsAfterAdd)")
+        let numberOfPhrasesAfterAdd = PhrasesScreen.phraseCount
+        XCTAssertEqual(numberOfPhrasesAfterAdd, numberOfPhrasesBeforeAdd, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterAdd)")
     }
     
     func testAddWhitespacePhraseDoesntAdd() {
@@ -77,18 +76,17 @@ class WordsAndPhrasesUITests: XCTestCase {
         let thePhrase = "  \t \n  "
         
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-        let numberOfCellsBeforeAdd = app.cells.count
-        PhrasesScreen.addButton.tap()
+        let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
+        PhrasesScreen.tapAddButton()
         XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Add a phrase' nav bar label")
 
-        AddAPhraseScreen.phraseEntryTextField.tap()
-        AddAPhraseScreen.phraseEntryTextField.typeText(thePhrase)
-        AddAPhraseScreen.doneButton.tap()
+        AddAPhraseScreen.typePhrase(thePhrase)
+        AddAPhraseScreen.tapDoneButton()
 
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
 
-        let numberOfCellsAfterAdd = app.cells.count
-        XCTAssertEqual(numberOfCellsAfterAdd, numberOfCellsBeforeAdd, "Expected \(numberOfCellsBeforeAdd) cells, but got \(numberOfCellsAfterAdd)")
+        let numberOfPhrasesAfterAdd = PhrasesScreen.phraseCount
+        XCTAssertEqual(numberOfPhrasesAfterAdd, numberOfPhrasesBeforeAdd, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterAdd)")
     }
     
     func testAddAPhraseThenCancel() {
@@ -96,19 +94,18 @@ class WordsAndPhrasesUITests: XCTestCase {
         let thePhrase = "Makes no difference who you are"
         
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-        let numberOfCellsBeforeAdd = app.cells.count
+        let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
 
-        PhrasesScreen.addButton.tap()
+        PhrasesScreen.tapAddButton()
         XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Add a phrase' nav bar label")
         
-        AddAPhraseScreen.phraseEntryTextField.tap()
-        AddAPhraseScreen.phraseEntryTextField.typeText(thePhrase)
-        AddAPhraseScreen.cancelButton.tap()
-        
+        AddAPhraseScreen.typePhrase(thePhrase)
+        AddAPhraseScreen.tapCancelButton()
+
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
 
-        let numberOfCellsAfterCancel = app.cells.count
-        XCTAssertEqual(numberOfCellsBeforeAdd, numberOfCellsAfterCancel, "Expected \(numberOfCellsBeforeAdd) cells, but got \(numberOfCellsAfterCancel)")
+        let numberOfPhrasesAfterCancel = PhrasesScreen.phraseCount
+        XCTAssertEqual(numberOfPhrasesBeforeAdd, numberOfPhrasesAfterCancel, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterCancel)")
     }
     
     func testEditPhrase() {
@@ -116,18 +113,18 @@ class WordsAndPhrasesUITests: XCTestCase {
         let phrase2 = "Play that funky music right"
         
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-        PhrasesScreen.addButton.tap()
+        PhrasesScreen.tapAddButton()
         
-        AddAPhraseScreen.phraseEntryTextField.tap()
-        AddAPhraseScreen.phraseEntryTextField.typeText(phrase1)
-        AddAPhraseScreen.doneButton.tap()
+        AddAPhraseScreen.typePhrase(phrase1)
+
+        AddAPhraseScreen.tapDoneButton()
 
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
 
-        let numberOfCellsBeforeEdit = app.cells.count
-        let phraseToEdit = app.staticTexts[phrase1]
+        let numberOfPhrasesBeforeEdit = PhrasesScreen.phraseCount
+        var phraseToEdit = PhrasesScreen.phrase(phrase1)
         XCTAssertTrue(phraseToEdit.waitForExistence(timeout: 10), "Never saw \(phraseToEdit)")
-        phraseToEdit.tap()
+        PhrasesScreen.tapPhrase(phrase1)
 
         UIPasteboard.general.string = phrase2
         AddAPhraseScreen.phraseEntryTextField.doubleTap()
@@ -137,27 +134,26 @@ class WordsAndPhrasesUITests: XCTestCase {
             return
         }
         
-        TextEditMenu.selectAllMenuItem.tap()
+        TextEditMenu.tapSelectAll()
 
         guard TextEditMenu.pasteMenuItem.waitForExistence(timeout: 5) else {
             XCTFail("Never saw the \"Paste\" Menu Item")
             return
         }
 
-        TextEditMenu.pasteMenuItem.tap()
+        TextEditMenu.tapPaste()
         sleep(1) // Need to wait a sec after "Paste" before tapping the "Done" button
 
-        AddAPhraseScreen.doneButton.tap()
+        AddAPhraseScreen.tapDoneButton()
         XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
 
-        let numberOfCellsAfterEdit = app.cells.count
-        XCTAssertEqual(numberOfCellsBeforeEdit, numberOfCellsAfterEdit, "Error: Expected \(numberOfCellsBeforeEdit) cells after edit, but got \(numberOfCellsAfterEdit)")
+        let numberOfPhrasesAfterEdit = PhrasesScreen.phraseCount
+        XCTAssertEqual(numberOfPhrasesBeforeEdit, numberOfPhrasesAfterEdit, "Error: Expected \(numberOfPhrasesBeforeEdit) cells after edit, but got \(numberOfPhrasesAfterEdit)")
         
-        XCTAssertTrue(app.staticTexts[phrase2].waitForExistence(timeout: 5), "Never saw phrase '\(phrase2)' view")
+        phraseToEdit = PhrasesScreen.phrase(phrase2)
+        XCTAssertTrue(phraseToEdit.waitForExistence(timeout: 5), "Never saw phrase '\(phrase2)' view")
         
-        app.staticTexts[phrase2].swipeLeft()
-        PhrasesScreen.deleteButton.tap()
-
+        PhrasesScreen.deletePhrase(phrase2)
     }
     
     func testAccessibilityIdentifier() {
@@ -166,7 +162,7 @@ class WordsAndPhrasesUITests: XCTestCase {
         XCTAssertTrue(PhrasesScreen.getInfoButton.waitForExistence(timeout: 5), "Never saw 'Get Info' button")
         XCTAssertTrue(PhrasesScreen.addButton.waitForExistence(timeout: 5), "Never saw '+' (Add) button")
  
-        PhrasesScreen.addButton.tap()
+        PhrasesScreen.tapAddButton()
 
         XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Add a phrase' nav bar label")
         XCTAssertTrue(AddAPhraseScreen.cancelButton.waitForExistence(timeout: 5), "Never saw 'Cancel' button")

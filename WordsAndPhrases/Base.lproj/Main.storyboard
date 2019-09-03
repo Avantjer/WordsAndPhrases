@@ -51,6 +51,9 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiPhraseTable"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="KfI-dx-04s" id="YXp-Ne-tlV"/>
                             <outlet property="delegate" destination="KfI-dx-04s" id="0uW-AP-ccN"/>

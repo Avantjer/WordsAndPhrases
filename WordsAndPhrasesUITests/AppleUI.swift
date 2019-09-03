@@ -11,5 +11,13 @@ import Foundation
 struct TextEditMenu {
     static let pasteMenuItem = app.menuItems["Paste"]
     static let selectAllMenuItem = app.menuItems["Select All"]
+    
+    static func tapPaste() {
+        pasteMenuItem.tap()
+    }
+
+    static func tapSelectAll() {
+        selectAllMenuItem.tap()
+    }
 }
 
