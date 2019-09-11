@@ -33,7 +33,37 @@ struct PhrasesScreen {
     }
 
     static func tapPhrase(_ phrase: String) {
-        addButton.tap()
+        app.staticTexts[phrase].tap()
+    }
+    
+    static func assertNavBarLabel() {
+        XCTAssertTrue(navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+    }
+    
+    static func assertScreenIsPresented() {
+        XCTAssertTrue(navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+    }
+    
+    static func assertPhrase(_ phrase: String, exists: Bool) {
+        
+        if exists == true {
+            XCTAssertTrue(app.staticTexts[phrase].waitForExistence(timeout: 5), "Never saw phrase '\(phrase)'")
+        } else {
+            XCTAssertFalse(app.staticTexts[phrase].exists, "Expected phrase '\(phrase)' to not be present.")
+        }
+    }
+    
+    static func assertPhraseCount(_ expectedCount: Int) {
+        XCTAssertEqual(phraseCount, expectedCount, "Error: Expected \(expectedCount) phrases, but got \(phraseCount)")
+    }
+    
+    static func assertXCUIElement(_ xcuiElement: XCUIElement, exists: Bool) {
+        
+        if exists == true {
+            XCTAssertTrue(xcuiElement.waitForExistence(timeout: 10), "Never saw XCUIElement")
+        } else {
+            XCTAssertFalse(xcuiElement.exists, "Expected XCUIElement to not exist")
+        }
     }
 
 }

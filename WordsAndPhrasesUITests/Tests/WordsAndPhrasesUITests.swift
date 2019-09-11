@@ -32,141 +32,123 @@ class WordsAndPhrasesUITests: XCTestCase {
         
         let thePhrase = "When you wish upon a star"
         
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+        PhrasesScreen.assertScreenIsPresented()
         
         let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
-        print("numberOfPhrasesBeforeAdd: \(numberOfPhrasesBeforeAdd)")
 
         PhrasesScreen.tapAddButton()
-        XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 5), "Never saw 'Add a phrase' nav bar label")
         
+        AddAPhraseScreen.assertScreenIsPresented()
         AddAPhraseScreen.typePhrase(thePhrase)
         AddAPhraseScreen.tapDoneButton()
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-
-        let numberOfPhrasesAfterAdd = PhrasesScreen.phraseCount
-        print("numberOfPhrasesAfterAdd: \(numberOfPhrasesAfterAdd)")
         
-        XCTAssertEqual(numberOfPhrasesAfterAdd, numberOfPhrasesBeforeAdd + 1, "Expected \(numberOfPhrasesBeforeAdd + 1) cells, but got \(numberOfPhrasesAfterAdd)")
-        
+        PhrasesScreen.assertScreenIsPresented()
+        PhrasesScreen.assertPhraseCount(numberOfPhrasesBeforeAdd + 1)
         PhrasesScreen.deletePhrase(thePhrase)
-
-        let numberOfPhrasesAfterDelete = PhrasesScreen.phraseCount
-        XCTAssertEqual(numberOfPhrasesAfterDelete, numberOfPhrasesBeforeAdd, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterDelete)")
+        PhrasesScreen.assertPhraseCount(numberOfPhrasesBeforeAdd)
     }
     
     func testAddAnEmptyPhraseDoesntAdd() {
         
         let thePhrase = ""
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+        
+        PhrasesScreen.assertScreenIsPresented()
+
         let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
         PhrasesScreen.tapAddButton()
         
+        AddAPhraseScreen.assertScreenIsPresented()
         AddAPhraseScreen.typePhrase(thePhrase)
         AddAPhraseScreen.tapDoneButton()
         
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-
-        let numberOfPhrasesAfterAdd = PhrasesScreen.phraseCount
-        XCTAssertEqual(numberOfPhrasesAfterAdd, numberOfPhrasesBeforeAdd, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterAdd)")
+        PhrasesScreen.assertScreenIsPresented()
+        PhrasesScreen.assertPhraseCount(numberOfPhrasesBeforeAdd)
     }
     
     func testAddWhitespacePhraseDoesntAdd() {
         
         let thePhrase = "  \t \n  "
         
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+        PhrasesScreen.assertScreenIsPresented()
         let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
         PhrasesScreen.tapAddButton()
-        XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Add a phrase' nav bar label")
-
+        
+        AddAPhraseScreen.assertScreenIsPresented()
         AddAPhraseScreen.typePhrase(thePhrase)
         AddAPhraseScreen.tapDoneButton()
 
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-
-        let numberOfPhrasesAfterAdd = PhrasesScreen.phraseCount
-        XCTAssertEqual(numberOfPhrasesAfterAdd, numberOfPhrasesBeforeAdd, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterAdd)")
+        PhrasesScreen.assertScreenIsPresented()
+        PhrasesScreen.assertPhraseCount(numberOfPhrasesBeforeAdd)
     }
     
     func testAddAPhraseThenCancel() {
         
         let thePhrase = "Makes no difference who you are"
         
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+        PhrasesScreen.assertScreenIsPresented()
         let numberOfPhrasesBeforeAdd = PhrasesScreen.phraseCount
 
         PhrasesScreen.tapAddButton()
-        XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Add a phrase' nav bar label")
         
+        AddAPhraseScreen.assertScreenIsPresented()
         AddAPhraseScreen.typePhrase(thePhrase)
         AddAPhraseScreen.tapCancelButton()
 
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-
-        let numberOfPhrasesAfterCancel = PhrasesScreen.phraseCount
-        XCTAssertEqual(numberOfPhrasesBeforeAdd, numberOfPhrasesAfterCancel, "Expected \(numberOfPhrasesBeforeAdd) cells, but got \(numberOfPhrasesAfterCancel)")
+        PhrasesScreen.assertScreenIsPresented()
+        PhrasesScreen.assertPhraseCount(numberOfPhrasesBeforeAdd)
     }
     
     func testEditPhrase() {
+        
         let phrase1 = "Play that funky music"
         let phrase2 = "Play that funky music right"
         
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+        PhrasesScreen.assertScreenIsPresented()
         PhrasesScreen.tapAddButton()
         
+        AddAPhraseScreen.assertScreenIsPresented()
         AddAPhraseScreen.typePhrase(phrase1)
-
         AddAPhraseScreen.tapDoneButton()
-
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
+        
+        PhrasesScreen.assertScreenIsPresented()
+        PhrasesScreen.assertPhrase(phrase1, exists: true)
 
         let numberOfPhrasesBeforeEdit = PhrasesScreen.phraseCount
-        var phraseToEdit = PhrasesScreen.phrase(phrase1)
-        XCTAssertTrue(phraseToEdit.waitForExistence(timeout: 10), "Never saw \(phraseToEdit)")
         PhrasesScreen.tapPhrase(phrase1)
-
-        UIPasteboard.general.string = phrase2
-        AddAPhraseScreen.phraseEntryTextField.doubleTap()
         
-        guard TextEditMenu.selectAllMenuItem.waitForExistence(timeout: 5) else {
-            XCTFail("Never saw the \"Select All\" Menu Item")
-            return
-        }
-        
-        TextEditMenu.tapSelectAll()
+        AddAPhraseScreen.assertScreenIsPresented()
 
-        guard TextEditMenu.pasteMenuItem.waitForExistence(timeout: 5) else {
-            XCTFail("Never saw the \"Paste\" Menu Item")
-            return
-        }
-
-        TextEditMenu.tapPaste()
-        sleep(1) // Need to wait a sec after "Paste" before tapping the "Done" button
+        TextEditMenu.doubleTapToEditTextField(AddAPhraseScreen.phraseEntryTextField)
+        TextEditMenu.selectAll()
+        TextEditMenu.pasteString(phrase2)
 
         AddAPhraseScreen.tapDoneButton()
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-
-        let numberOfPhrasesAfterEdit = PhrasesScreen.phraseCount
-        XCTAssertEqual(numberOfPhrasesBeforeEdit, numberOfPhrasesAfterEdit, "Error: Expected \(numberOfPhrasesBeforeEdit) cells after edit, but got \(numberOfPhrasesAfterEdit)")
         
-        phraseToEdit = PhrasesScreen.phrase(phrase2)
-        XCTAssertTrue(phraseToEdit.waitForExistence(timeout: 5), "Never saw phrase '\(phrase2)' view")
-        
+        PhrasesScreen.assertScreenIsPresented()
+        PhrasesScreen.assertPhrase(phrase2, exists: true)
+        PhrasesScreen.assertPhraseCount(numberOfPhrasesBeforeEdit)
         PhrasesScreen.deletePhrase(phrase2)
+        PhrasesScreen.assertPhrase(phrase2, exists: false)
+        PhrasesScreen.assertPhraseCount(numberOfPhrasesBeforeEdit - 1)
     }
     
-    func testAccessibilityIdentifier() {
+    func testForUIElements() {
         
-        XCTAssertTrue(PhrasesScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Phrases' nav bar label")
-        XCTAssertTrue(PhrasesScreen.getInfoButton.waitForExistence(timeout: 5), "Never saw 'Get Info' button")
-        XCTAssertTrue(PhrasesScreen.addButton.waitForExistence(timeout: 5), "Never saw '+' (Add) button")
+        PhrasesScreen.assertScreenIsPresented()
+        PhrasesScreen.assertXCUIElement(PhrasesScreen.getInfoButton, exists: true)
+        PhrasesScreen.assertXCUIElement(PhrasesScreen.addButton, exists: true)
  
         PhrasesScreen.tapAddButton()
 
-        XCTAssertTrue(AddAPhraseScreen.navBarLabel.waitForExistence(timeout: 10), "Never saw 'Add a phrase' nav bar label")
-        XCTAssertTrue(AddAPhraseScreen.cancelButton.waitForExistence(timeout: 5), "Never saw 'Cancel' button")
-        XCTAssertTrue(AddAPhraseScreen.doneButton.waitForExistence(timeout: 5), "Never saw 'Done' button")
+        AddAPhraseScreen.assertScreenIsPresented()
+        AddAPhraseScreen.assertXCUIElement(AddAPhraseScreen.cancelButton, exists: true)
+        AddAPhraseScreen.assertXCUIElement(AddAPhraseScreen.doneButton, exists: true)
+        AddAPhraseScreen.assertXCUIElement(AddAPhraseScreen.phraseLabel, exists: true)
+        AddAPhraseScreen.assertXCUIElement(AddAPhraseScreen.phraseEntryTextField, exists: true)
+    }
+    
+    func testRapidAPI() {
+        AddAPhraseScreen.rapidAPI()
     }
     
 }
