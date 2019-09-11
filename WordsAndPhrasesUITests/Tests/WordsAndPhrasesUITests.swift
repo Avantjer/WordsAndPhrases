@@ -147,10 +147,6 @@ class WordsAndPhrasesUITests: XCTestCase {
         AddAPhraseScreen.assertXCUIElement(AddAPhraseScreen.phraseEntryTextField, exists: true)
     }
     
-    func testRapidAPI() {
-        AddAPhraseScreen.rapidAPI()
-    }
-    
 }
 
 
