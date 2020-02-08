@@ -118,7 +118,7 @@ class WordsAndPhrasesUITests: XCTestCase {
         
         AddAPhraseScreen.assertScreenIsPresented()
 
-        TextEditMenu.doubleTapToEditTextField(AddAPhraseScreen.phraseEntryTextField)
+        TextEditMenu.tapTwiceToEditTextField(AddAPhraseScreen.phraseEntryTextField)
         TextEditMenu.selectAll()
         TextEditMenu.pasteString(phrase2)
 

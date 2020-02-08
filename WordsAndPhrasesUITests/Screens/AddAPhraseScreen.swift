@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 
 struct AddAPhraseScreen {
-    static let navBarLabel = app.navigationBars["aiNavigationBar"].otherElements["Add a phrase"]
+    static let navBarLabel = app.navigationBars["aiNavigationBar"].staticTexts["Add a phrase"]
     static let cancelButton = app.buttons["aiCancel"]
     static let doneButton = app.buttons["aiDone"]
     static let phraseEntryTextField = app.textFields["aiPhrase"]

@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 
 struct PhrasesScreen {
-    static let navBarLabel = app.navigationBars["aiNavigationBar"].otherElements["Phrases"]
+    static let navBarLabel = app.navigationBars["aiNavigationBar"].staticTexts["Phrases"]
     static let addButton = app.buttons["aiAdd"]
     static let getInfoButton = app.buttons["aiGetInfo"]
     static let deleteButton = app.buttons["Delete"]

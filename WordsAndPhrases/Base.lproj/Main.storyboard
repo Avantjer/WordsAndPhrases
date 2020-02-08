@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WZG-Xm-Q2V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WZG-Xm-Q2V">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,7 +11,7 @@
         <scene sceneID="4nA-e0-mP2">
             <objects>
                 <tableViewController id="KfI-dx-04s" customClass="ViewController" customModule="WordsAndPhrases" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FYi-dK-dKv">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FYi-dK-dKv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,6 +50,27 @@
                                     <segue destination="zCe-Ug-LJI" kind="show" identifier="EditSegue" id="S2t-kT-5Zw"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="nuCell" rowHeight="66" id="z3K-TD-3oc">
+                                <rect key="frame" x="0.0" y="72" width="375" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z3K-TD-3oc" id="CSK-QA-QlJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="348" height="66"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybf-br-cTV">
+                                            <rect key="frame" x="16" y="11" width="324" height="50"/>
+                                            <color key="backgroundColor" red="0.60196405649185181" green="0.47611832618713379" blue="0.72023159265518188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ybf-br-cTV" firstAttribute="trailing" secondItem="CSK-QA-QlJ" secondAttribute="trailingMargin" id="877-WW-8w3"/>
+                                        <constraint firstItem="ybf-br-cTV" firstAttribute="leading" secondItem="CSK-QA-QlJ" secondAttribute="leadingMargin" id="Vgt-h4-6CX"/>
+                                        <constraint firstItem="ybf-br-cTV" firstAttribute="top" secondItem="CSK-QA-QlJ" secondAttribute="topMargin" id="bSt-E7-6FG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ybf-br-cTV" secondAttribute="bottom" constant="-6" id="r5e-3o-GzM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableViewCell>
                         </prototypes>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="aiPhraseTable"/>
@@ -83,7 +104,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyL-Ah-6M8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994" y="45"/>
+            <point key="canvasLocation" x="992.79999999999995" y="44.527736131934034"/>
         </scene>
         <!--Add a phrase-->
         <scene sceneID="f5K-zB-3J1">

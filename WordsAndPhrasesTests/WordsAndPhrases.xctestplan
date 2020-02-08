@@ -2,9 +2,9 @@
   "configurations" : [
     {
       "id" : "11634DAD-5162-498B-8DF5-B6A7E20BD8ED",
-      "name" : "Configuration 1",
+      "name" : "AlphabeticalRun",
       "options" : {
-
+        "testExecutionOrdering" : "alphabetical"
       }
     },
     {
@@ -35,7 +35,8 @@
     },
     {
       "skippedTests" : [
-        "WordsAndPhrasesUITests\/testNestedFailure()"
+        "WordsAndPhrasesUITests\/testNestedFailure()",
+        "WordsAndPhrasesUITests\/testRapidAPI()"
       ],
       "target" : {
         "containerPath" : "container:WordsAndPhrases.xcodeproj",
